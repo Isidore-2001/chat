@@ -15,11 +15,10 @@ try {
    $message = checkString('message');
    $email1 = $_SESSION['ident'];
    $exp_email = checkString('email');
-   $message  = ltrim($message);
+   $message  = trim($message);
                
    
-   
-   if (isset($email1) && isset($exp_email) && isset($message) && preg_match(COLOR_REGEXP,$message)){
+   if (isset($email1) && isset($exp_email) && isset($message) && strlen($message) > 0){
        $res = $data->chatinsert( $email1,  $exp_email,  $message );
        
        if (!$res ){
