@@ -144,17 +144,17 @@ EOD;
         }
 
 
-        function users(string $email, string $i){
+        function users(string $email){
             $res = <<<EOD
             select * from "users" 
-            where not email=:email and status=:status and ilike nom '%:nom' order by numusers desc
+            where not email=:email and status=:status  order by numusers desc
             
         EOD;
         
         $stmt = $this->connexion->prepare($res);
         
         $stmt->bindValue(":email",$email);
-        $stmt->bindValue(":nom",$i);
+        
         
         $stmt->bindValue(":status",'Active now');
         //$stmt->bindValue(":password",$password);
@@ -233,6 +233,27 @@ EOD;
     //$stmt->setFetchMode(PDO::FETCH_ASSOC);
     $res1 = $stmt->fetchAll();
     return $res1;
+}
+
+function search(string $email, string $nom){
+    $res = <<<EOD
+    select * from "users" 
+    where not email=:email and status=:status 
+    
+EOD;
+$res.="and nom ilike  '%".$nom."%' order by numusers desc";
+$stmt = $this->connexion->prepare($res);
+
+$stmt->bindValue(":email",$email);
+
+
+$stmt->bindValue(":status",'Active now');
+//$stmt->bindValue(":password",$password);
+
+$stmt->execute();
+//$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$res1 = $stmt->fetchAll();
+return $res1;
 }
 
 

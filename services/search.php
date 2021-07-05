@@ -16,8 +16,8 @@ require_once('php/initDataLayer.php');
   
    
 
-   
-   $res = $data->users($_SESSION['ident']);
+   $search = $_POST['search'];
+   $res = $data->search($_SESSION['ident'], $search);
     $mes = "";
     foreach ($res as $i){
         $mes.= '<a  href="chat.php?user_id='.$i['numusers'].'">
@@ -35,16 +35,3 @@ require_once('php/initDataLayer.php');
 
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-?>
