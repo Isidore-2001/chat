@@ -15,7 +15,7 @@ try {
    $message = checkString('message');
    $email1 = $_SESSION['ident'];
    $exp_email = checkString('email');
-   
+   $message  = ltrim($message);
                
    
    
