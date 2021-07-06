@@ -41,6 +41,7 @@ function sendForm1(ev){ // form event listener
     let args= new FormData(this);
     fetchFromJson('services/chat-insert.php',{method:'post',body:args})
     .then(makemessagesItems);
+    inputField.value = "";
     
     
     }
@@ -57,12 +58,14 @@ function sendForm1(ev){ // form event listener
 
 
     function makemessagesItems(answer){
+      
         let errorText = document.querySelector(".error-text");
         
         let option1 = document.createElement('li');
         console.log(answer.status);
         if (answer.status == "ok"){
-          location.href="#";}
+          
+          }
         else
            {
               errorText.style.display = "block";
@@ -88,7 +91,8 @@ function sendForm1(ev){ // form event listener
         if (answer.status == "ok"){
           
           Text.innerHTML = answer.result;
-        
+          
+          
           if(!chatBox.classList.contains("a")){
             scrollToBottom();          }
          
