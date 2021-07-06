@@ -1,4 +1,16 @@
 
+<?php
+/*
+  Si la variable globale $erreurCreation est définie, un message d'erreur est affiché
+  dans un paragraphe de classe 'message'
+*/
+session_name('synthese_isidore');
+session_start() ;
+
+if(!isset($_SESSION['ident'])){
+  header("location: login.php");
+}
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
   <head>

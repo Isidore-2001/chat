@@ -16,7 +16,7 @@ require_once('php/initDataLayer.php');
   
    
 
-   $search = $_POST['search'];
+   $search = $_GET['search'];
    $res = $data->search($_SESSION['ident'], $search);
     $mes = "";
     foreach ($res as $i){
@@ -34,4 +34,4 @@ require_once('php/initDataLayer.php');
     produceResult($mes);
 
 
-    
+    ?>

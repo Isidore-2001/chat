@@ -7,6 +7,7 @@ b.onclick = ()=>{
     s.classList.toggle("show");
     b.classList.toggle("active");
     if (s.classList.contains("active")){
+       
         s.classList.value = "";
         s.classList.remove("active");
     }
@@ -25,19 +26,27 @@ else{
     s.classList.remove("active");
 }
 
+
+
 }
 
 function sendForm3(ev){ // form event listener
-    
+    timer2();
     ev.preventDefault();
-    window.setInterval(timer,500);
+    window.setInterval(timer2,500);
     
     
     
     
     }
 function timer (){
-    fetchFromJson('services/user.php')
+    /*fetchFromJson('services/user.php')
+    .then(makemessagesItems3);
+    */
+}
+
+function timer2 (){
+    fetchFromJson('services/search.php?search='+s.value)
     .then(makemessagesItems3);
     
 }
@@ -45,7 +54,7 @@ function timer (){
 
 
     function makemessagesItems3(answer){
-        
+        console.log(answer);
         let Text = document.querySelector(".users-list");
         
         let option1 = document.createElement('li');
