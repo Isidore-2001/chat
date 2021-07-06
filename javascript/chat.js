@@ -1,5 +1,8 @@
 
 window.addEventListener('load',initForm);
+/*window.addEventListener("DOMContentLoaded", (event) => {
+  sendForm2;
+});*/
 const form = document.querySelector(".typing-area");
 sendBtn = form.querySelector("button");
 
@@ -9,9 +12,11 @@ chatBox = document.querySelector(".chat-box");
 function initForm(){
   
   /**window.setInterval(,500);**/
-
+  sendForm2();
   form.addEventListener("submit", sendForm1);
-  form.addEventListener("submit", sendForm2);
+  
+
+  
   //document.forms.form_communes.addEventListener("submit", fetchCommune);
   
   
@@ -39,11 +44,11 @@ function sendForm1(ev){ // form event listener
     
     
     }
-    function sendForm2(ev){ // form event listener
+    function sendForm2(){ // form event listener
       window.setInterval(()=>{
-      ev.preventDefault();
-        let args= new FormData(this);
-        fetchFromJson('services/get-chat.php',{method:'post',body:args})
+      
+        
+        fetchFromJson('services/get-chat.php')
        .then(makemessagesItems2);
       }, 500);
       
@@ -64,10 +69,6 @@ function sendForm1(ev){ // form event listener
               errorText.textContent = answer.message;
             
           }
-        
-      
-        
-      
         
       }
 

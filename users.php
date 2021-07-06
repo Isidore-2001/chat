@@ -29,7 +29,7 @@ set_include_path('..'.PATH_SEPARATOR);
 spl_autoload_register(function ($className) {
   include ("php/{$className}.class.php");
 });
-
+unset($_SESSION['i']);
 require_once('php/initDataLayer.php');
 
 $res = $data->info($_SESSION['ident']); ?>

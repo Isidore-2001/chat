@@ -16,21 +16,37 @@ require_once('php/initDataLayer.php');
   
    
 
-   
+   $mes='';
    $res = $data->users($_SESSION['ident']);
-    $mes = "";
+   
+   
+    
     foreach ($res as $i){
+      $mes3 = "";
+      $email = $data->getemail($i['numusers']);
+      $mes2 = $data->getchat($_SESSION['ident'], $email);
+      $mes2 = $mes2[count($mes2)-1];
+      if(strlen($mes2['texte']) > 28 ){
+     $mes3.=substr($mes2['texte'], 0, 28) . '...';
+   }
+   else{
+    $mes3 = $mes2['texte'];
+   }
+
         $mes.= '<a  href="chat.php?user_id='.$i['numusers'].'">
         <div class="content">
         <img src="images/'.$i['image'].'" alt="">
         <div class="details">
         <span>'.$i['nom'].' '.$i['prenom'].' </span>
-        <p> This is message</p>
+        <p>'.$mes3.'</p>
       </div>
       </div>
       <div class="status-dot"><i class="fas fa-circle"></i></div>
       </a>';
+      //var_dump($mes3);
+      
     }
+   
     produceResult($mes);
 
 

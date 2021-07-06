@@ -28,6 +28,7 @@ if(!isset($_SESSION['ident'])){
       <header>
       <?php
 $id = intval($_GET['user_id']);
+$_SESSION['i'] = $res['email'];
 set_include_path('..'.PATH_SEPARATOR);
 spl_autoload_register(function ($className) {
   include ("php/{$className}.class.php");
@@ -51,7 +52,8 @@ echo $res['nom']; echo ' '; echo $res['prenom']?></span>
             
         <?php
 $result = $data->getchat($_SESSION['ident'], $res['email']);
-   
+$_SESSION['i'] = $res['email'];
+
 $mes = "";
 foreach ($result as $i){
   $id = 0;

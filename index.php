@@ -4,12 +4,18 @@
   Si la variable globale $erreurCreation est définie, un message d'erreur est affiché
   dans un paragraphe de classe 'message'
 */
+set_include_path('..'.PATH_SEPARATOR);
+spl_autoload_register(function ($className) {
+  include ("php/{$className}.class.php");
+});
+
+require_once('php/initDataLayer.php');
 session_name('synthese_isidore');
 session_start() ;
-
+/*
 if(!isset($_SESSION['ident'])){
-  header("location: login.php");
-}
+	$data->updatestatus($_SESSION['ident'],'Offline now');
+}*/
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">

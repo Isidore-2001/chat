@@ -193,6 +193,8 @@ EOD;
                 return false;
             }
         }
+
+
         function getchat(string $email1,  string $email2){
             $res = <<<EOD
             select * from "message" 
@@ -213,6 +215,26 @@ EOD;
         $res1 = $stmt->fetchAll();
         return $res1;
     }
+    function getemail(int $id){
+        $res = <<<EOD
+        select * from "users" 
+        where numusers=:id
+        
+    EOD;
+     
+    $stmt = $this->connexion->prepare($res);
+    
+    $stmt->bindValue(":id",$id);
+    
+    
+    
+    
+   
+    $stmt->execute();
+    //$stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $res1 = $stmt->fetch();
+    return $res1['email'];
+}
     function getchat2(string $email1,  string $email2, int $id){
         $res = <<<EOD
         select * from "message" 

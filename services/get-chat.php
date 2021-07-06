@@ -16,8 +16,8 @@ require_once('php/initDataLayer.php');
   
    
    
-   $exp_email = $_POST['email'];
-   $id = $_POST['id'];
+   $exp_email = $_SESSION['i'];
+   
    $res = $data->getchat($_SESSION['ident'], $exp_email);
     $mes = "";
     foreach ($res as $i){
