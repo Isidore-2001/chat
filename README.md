@@ -38,4 +38,6 @@ Et mettez vos informations de connexion dans le fichier webtp_dsn.txt.
 
 Ensuite suivez donc votre lien vers votre site.
 Lien de mon site en activant le vpn de l'université de lille => 
-<a  href="https://webtp.fil.univ-lille1.fr/~amevigbe/tchat/"></a>
+        ```
+          $ https://webtp.fil.univ-lille1.fr/~amevigbe/tchat/
+        ```

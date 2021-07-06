@@ -26,7 +26,7 @@ if(!isset($_SESSION['ident'])){
 	<link rel="stylesheet" href="style/style.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 	<script src="javascript/createUser.js"></script>
-	<
+	
 	<script src="javascript/fetchUtils.js"></script>
 
     
