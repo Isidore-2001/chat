@@ -1,7 +1,8 @@
 
 
 window.addEventListener('load',initForm);
-
+toggleIcon = document.querySelector(".form .field i");
+console.log(toggleIcon);
 function initForm(){
   
   document.forms.formulaire.addEventListener("submit", sendForm);
