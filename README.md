@@ -36,8 +36,9 @@ Pour utiliser le code source télécharger le .
 Ensuite importer le fichier sql dans votre PhpAdmin, adapté le si nécessaire 
 Et mettez vos informations de connexion dans le fichier webtp_dsn.txt.
 
-Ensuite suivez donc votre lien vers votre site.
-Lien de mon site en activant le vpn de l'université de lille => 
+# Problème
  
-https://webtp.fil.univ-lille1.fr/~amevigbe/tchat/
-        
+
+Le problème rencontré est que le fait de lancer à chaque fois des requêtes en JavaScript 
+surchargeait le serveur. Ce qui fait que les applications de chat actuelle utilise plus 
+les WebSockets
